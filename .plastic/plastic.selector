@@ -1,0 +1,4 @@
+repository "VeggieNinja@MultimedijalnaProd@cloud"
+  path "/"
+    br "/main"
+    co "/main"
