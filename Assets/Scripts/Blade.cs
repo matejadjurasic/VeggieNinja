@@ -3,6 +3,7 @@ using UnityEngine;
 public class Blade : MonoBehaviour
 {
     private Camera mainCamera;
+    private TrailRenderer bladeTrail;
     private Collider bladeCollider;
     public Vector3 direction { get; private set; }
     private bool slicing;
@@ -11,6 +12,7 @@ public class Blade : MonoBehaviour
     {
         mainCamera = Camera.main;
         bladeCollider = GetComponent<Collider>();
+        bladeTrail = GetComponentInChildren<TrailRenderer>();
     }
 
     private void onEnable()
@@ -45,12 +47,15 @@ public class Blade : MonoBehaviour
         transform.position = newPosition;
         slicing = true;
         bladeCollider.enabled = true;
+        bladeTrail.enabled = true;
+        bladeTrail.Clear();
     }
 
     private void StopSlicing()
     {
         slicing = false;
         bladeCollider.enabled = false;
+        bladeTrail.enabled = false;
     }
 
     private void ContinueSlicing()
