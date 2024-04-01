@@ -6,6 +6,7 @@ public class Blade : MonoBehaviour
     private TrailRenderer bladeTrail;
     private Collider bladeCollider;
     public Vector3 direction { get; private set; }
+    public float sliceForce = 5f;
     private bool slicing;
 
     private void Awake()
