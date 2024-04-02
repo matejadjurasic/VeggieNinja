@@ -8,6 +8,7 @@ public class Veggies : MonoBehaviour
     private Rigidbody veggieRigidbody;
     private Collider veggieCollider;
     private ParticleSystem juiceParticleEffect;
+    public int points=1;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class Veggies : MonoBehaviour
 
     private void Slice(Vector3 direction,Vector3 position,float force)
     {
+        FindObjectOfType<GameManager>().IncreaseScore(points);
         whole.SetActive(false);
         sliced.SetActive(true);
 

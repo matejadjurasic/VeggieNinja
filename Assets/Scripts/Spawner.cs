@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private Collider spawnArea;
-
     public GameObject[] fruitPrefabs;
     public GameObject bombPrefab;
     [Range(0f, 1f)] public float bombChance = 0.05f;
