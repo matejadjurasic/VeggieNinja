@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 906064595898874957, guid: 5a2b6a3c41ed41449895601258f06107, type: 3}
   - {fileID: 906064595898874957, guid: b9b01c04857f4fb4caf93b7ec9cc7b27, type: 3}
   - {fileID: 906064595898874957, guid: 6d22c60cf3272024baa4a3857c4bfcd1, type: 3}
-  bombPrefab: {fileID: 0}
+  bombPrefab: {fileID: 8116177764451833143, guid: 06fc1bdf3271ce142b27bfc3d57e11e7, type: 3}
   bombChance: 0.05
   minSpawnDelay: 0.25
   maxSpawnDelay: 1
