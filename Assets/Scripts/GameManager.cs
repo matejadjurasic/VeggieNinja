@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -116,6 +117,11 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void Explode()
     {
         blade.enabled = false;
@@ -152,5 +158,10 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         GameOver();
+    }
+
+    public int GetScore()
+    {
+    return score;
     }
 }

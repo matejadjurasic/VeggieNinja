@@ -19,10 +19,14 @@ public class Spawner : MonoBehaviour
     public float maxForce = 22f;
 
     public float maxLifetime = 5f;
+    public float spawnRateIncreaseScoreThreshold1 = 50;
+    public float spawnRateIncreaseScoreThreshold2 = 150;
+    private GameManager gameManager;
 
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnEnable()
@@ -41,6 +45,8 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
+            UpdateSpawnRates();
+
             GameObject prefab = fruitPrefabs[Random.Range(0, fruitPrefabs.Length)];
 
              if (Random.value < bombChance) {
@@ -63,6 +69,22 @@ public class Spawner : MonoBehaviour
             fruit.GetComponent<Rigidbody>().AddForce(fruit.transform.up * force, ForceMode.Impulse);
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
+        }
+    }
+
+    private void UpdateSpawnRates()
+    {
+        if (gameManager.GetScore() >= spawnRateIncreaseScoreThreshold2)
+        {
+            minSpawnDelay = 0.15f;
+            maxSpawnDelay = 0.5f;
+            bombChance = 0.15f;
+        }
+        else if (gameManager.GetScore() >= spawnRateIncreaseScoreThreshold1)
+        {
+            minSpawnDelay = 0.2f;
+            maxSpawnDelay = 0.75f;
+            bombChance = 0.1f;
         }
     }
 
