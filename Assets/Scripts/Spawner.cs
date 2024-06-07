@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     public float minForce = 18f;
     public float maxForce = 22f;
 
-    public float maxLifetime = 5f;
+    public float maxLifetime = 10f;
     public float spawnRateIncreaseScoreThreshold1 = 50;
     public float spawnRateIncreaseScoreThreshold2 = 150;
     private GameManager gameManager;

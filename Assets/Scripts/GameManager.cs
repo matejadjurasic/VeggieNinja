@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Sprite halfHealthSprite;
     public Sprite emptyHealthSprite;
     public GameObject gameOverMenu;
+    public AudioSource gameStartAudioSource; 
+    public AudioSource gameEndAudioSource; 
 
 
     private void Awake()
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
+        gameStartAudioSource.Play();
         Time.timeScale = 1f;
         blade.enabled = true;
         spawner.enabled = true;
@@ -106,9 +109,17 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        gameEndAudioSource.Play(); 
         blade.enabled = false;
         spawner.enabled = false;
         Time.timeScale = 0f;
+        int highScore = HighScoreManager.GetHighScore();
+        
+        if (score > highScore)
+        {
+            HighScoreManager.SetHighScore(score);
+        }
+
         gameOverMenu.SetActive(true);
     }
 

@@ -4,12 +4,14 @@ public class Veggies : MonoBehaviour
 {
     public GameObject whole;
     public GameObject sliced;
+    public AudioClip veggieSlice;
 
     private Rigidbody veggieRigidbody;
     private Collider veggieCollider;
     private ParticleSystem juiceParticleEffect;
+    private AudioSource audioSource;
     public int points = 1;
-    public float minHeight = 0f;
+    public float minHeight = -10f;
     private bool isFalling = false;
     private bool isSliced = false;
 
@@ -18,6 +20,7 @@ public class Veggies : MonoBehaviour
         veggieRigidbody = GetComponent<Rigidbody>();
         veggieCollider = GetComponent<Collider>();
         juiceParticleEffect = GetComponentInChildren<ParticleSystem>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Slice(Vector3 direction, Vector3 position, float force)
@@ -31,6 +34,7 @@ public class Veggies : MonoBehaviour
         sliced.SetActive(true);
 
         juiceParticleEffect.Play();
+        audioSource.PlayOneShot(veggieSlice);
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);

@@ -8,12 +8,14 @@ public class Blade : MonoBehaviour
     public Vector3 direction { get; private set; }
     public float sliceForce = 5f;
     private bool slicing;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         mainCamera = Camera.main;
         bladeCollider = GetComponent<Collider>();
         bladeTrail = GetComponentInChildren<TrailRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void onEnable()
@@ -50,6 +52,7 @@ public class Blade : MonoBehaviour
         bladeCollider.enabled = true;
         bladeTrail.enabled = true;
         bladeTrail.Clear();
+        audioSource.Play();
     }
 
     private void StopSlicing()
