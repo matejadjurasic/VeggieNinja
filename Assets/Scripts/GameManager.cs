@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,9 +17,8 @@ public class GameManager : MonoBehaviour
     public Sprite halfHealthSprite;
     public Sprite emptyHealthSprite;
     public GameObject gameOverMenu;
-    public AudioSource gameStartAudioSource; 
-    public AudioSource gameEndAudioSource; 
-
+    public AudioSource gameStartAudioSource;
+    public AudioSource gameEndAudioSource;
 
     private void Awake()
     {
@@ -40,6 +39,7 @@ public class GameManager : MonoBehaviour
         spawner.enabled = true;
         score = 0;
         scoreText.text = score.ToString();
+        scoreTextFinish.text = score.ToString() + " POINTS";;
         currentHealth = veggieImages.Length * 2;
         gameOverMenu.SetActive(false);
         for (int i = 0; i < veggieImages.Length; i++)
@@ -109,12 +109,12 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        gameEndAudioSource.Play(); 
+        gameEndAudioSource.Play();
         blade.enabled = false;
         spawner.enabled = false;
         Time.timeScale = 0f;
         int highScore = HighScoreManager.GetHighScore();
-        
+
         if (score > highScore)
         {
             HighScoreManager.SetHighScore(score);
@@ -173,6 +173,6 @@ public class GameManager : MonoBehaviour
 
     public int GetScore()
     {
-    return score;
+        return score;
     }
 }
