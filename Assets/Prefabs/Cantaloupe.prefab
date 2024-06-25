@@ -26,19 +26,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 854aea466bdb40246b98f615fa270563, type: 2}
     - target: {fileID: 3653124702352312808, guid: e7b1d594b62e3a540b3cf815ded05d9f, type: 3}
       propertyPath: m_Name
-      value: Lemon
+      value: Cantaloupe
       objectReference: {fileID: 0}
     - target: {fileID: 5310961145702202949, guid: e7b1d594b62e3a540b3cf815ded05d9f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5310961145702202949, guid: e7b1d594b62e3a540b3cf815ded05d9f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5310961145702202949, guid: e7b1d594b62e3a540b3cf815ded05d9f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.9
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5310961145702202949, guid: e7b1d594b62e3a540b3cf815ded05d9f, type: 3}
       propertyPath: m_LocalPosition.x
